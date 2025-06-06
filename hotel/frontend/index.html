@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Reserva tu habitación</h1>
+    <form id="bookingForm">
+        <label>Nombre:
+            <input type="text" name="nombre" required>
+        </label><br>
+        <label>Email:
+            <input type="email" name="email" required>
+        </label><br>
+        <label>Fecha de entrada:
+            <input type="date" name="checkin" required>
+        </label><br>
+        <label>Fecha de salida:
+            <input type="date" name="checkout" required>
+        </label><br>
+        <button type="submit">Reservar</button>
+    </form>
+    <p id="respuesta"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Reserva</title>
+  <link rel="stylesheet" href="style_prueba.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<head>
+  
+  <form id="form">
+  <div class="field">
+    <label for="emailjs_name">Email</label>
+    <input type="text" name="emailjs_name" id="emailjs_name">
+  </div>
+  <div class="field">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name">
+  </div>
+  <div class="field">
+    <label for="id_user">id de usuario</label>
+    <input type="text" name="id_user" id="id_user">
+  </div>
+  <div class="field">
+    <label for="id_habitacion">id de habitacion</label>
+    <input type="text" name="id_habitacion" id="id_habitacion">
+  </div>
+  <div class="field">
+    <label for="fecha_inicio">Fecha de entrada</label>
+    <input type="text" name="fecha_inicio" id="fecha_inicio">
+  </div>
+  <div class="field">
+    <label for="fecha_fin">fecha de salidad</label>
+    <input type="text" name="fecha_fin" id="fecha_fin">
+  </div>
+  <div class="field">
+    <label for="metodo_pago">Forma de pago</label>
+    <input type="text" name="metodo_pago" id="metodo_pago">
+  </div>
+   <input type="submit" id="button" value="Confirmar reserva">
+</form>
+
+<!-- Script al final para asegurar que todo el HTML ya está cargado -->
+<script>
+  emailjs.init('yyQ1w7RrIv7H2bJ4t'); // Tu Public Key
+
+  window.onload = function() {
+    const btn = document.getElementById('button');
+    const form = document.getElementById('form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      btn.value = 'Confirmando...';
+
+      const serviceID = 'service_7wcqp1r';
+      const templateID = 'template_cot9itm'; // Asegúrate de que este ID existe en tu cuenta EmailJS
+
+      emailjs.sendForm(serviceID, templateID, form)
+        .then(() => {
+          btn.value = 'Send Email';
+          alert('✅ Se ha enviado un correo con los detalles de su reserva.');
+          form.reset();
+        }, (err) => {
+          btn.value = 'Send Email';
+          console.error('Error al enviar:', err);
+          alert('❌ Error al enviar el correo: ' + JSON.stringify(err));
+        });
+    });
+  };
+  
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+

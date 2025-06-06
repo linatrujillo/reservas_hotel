@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Reserva</title>
+</head>
+<body>
+    <h1>Crear una reserva</h1>
+    <form action="guardar_reserva.php" method="POST">
+        <label>ID Usuario:</label>
+        <input type="number" name="id_user" required><br><br>
+
+        <label>ID Habitacion:</label>
+        <input type="number" name="id_habitacion" required><br><br>
+
+        <label>Fecha Inicio:</label>
+        <input type="date" name="fecha_inicio" required><br><br>
+
+        <label>Fecha Fin:</label>
+        <input type="date" name="fecha_fin" required><br><br>
+
+        <label>Metodo de Pago:</label>
+        <input type="text" name="metodo_pago" required><br><br>
+
+        <input type="submit" value="Guardar Reserva">
+    </form>
+</body>
+</html>
